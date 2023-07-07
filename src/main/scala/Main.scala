@@ -45,4 +45,17 @@ object Sudoku {
     }.mkString("+-------+-------+-------+\n", "\n+-------+-------+-------+\n", "\n+-------+-------+-------+")
   }
 
+  def validate(sudoku: Board, x:Int, y:Int, value: Int):Boolean = {
+    val row= sudoku(y)
+    val column = sudoku.map(r => r.apply(x))
+    val boxX = x/3
+    val boxY = x/3
+    val box = for {
+      yb <- (boxX * 3) until (boxY * 3 +3)
+      xb <- (boxX * 3) until (boxX * 3 +3)
+    }yield sudoku(yb)(xb)
+    row.count(_ == value) == 0 && column.count(_ == value) == 0 && box.count(_ == value ) ==0
+    
+  }
+
 }
