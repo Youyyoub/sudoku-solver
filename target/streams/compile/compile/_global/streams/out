@@ -1,0 +1,11 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\Users\sofia\OneDrive\Documents\GitHub\sudoku-solver\src\main\scala\Main.scala:8:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m8 |[0m  [33mtype[0m [35mEnvironment[0m = [35mZEnv[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m                     ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m                     Not found: type ZEnv[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\sofia\OneDrive\Documents\GitHub\sudoku-solver\src\main\scala\Main.scala:30:8 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m30 |[0m    ZIO.effect(Source.fromFile(path).getLines.toArray)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value effect is not a member of object zio.ZIO[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
