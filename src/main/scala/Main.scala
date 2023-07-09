@@ -5,8 +5,8 @@ import scala.io.Source
 import zio.Console._
 
 object Main extends ZIOAppDefault {
-  def run: ZIO[Any, Nothing, ExitCode] =
-    (for {
+  def run: ZIO[Any, Throwable, Unit] =
+    for {
       _ <- printLine("Enter the path to the JSON file containing the Sudoku problem:")
       path <- readLine
       _ <- printLine(s"You entered: $path")
@@ -22,7 +22,7 @@ object Main extends ZIOAppDefault {
       _ <- printLine("Here is a nice view of our sudoku")
       // Add your Sudoku solver logic here, utilizing ZIO and interacting with the ZIO Console
 
-    } yield ()).exitCode
+    } yield ()
 
   def openFile(path: String): ZIO[Any, Throwable, Array[String]] =
     ZIO.succeed(Source.fromFile(path).getLines.toArray)
