@@ -1,7 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\src\main\scala\Main.scala:27:24 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m27 |[0m      jsonSudokuData <- openFile(path).catchAll { error =>[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                        ^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                        Not found: openFile[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
