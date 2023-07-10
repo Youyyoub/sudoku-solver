@@ -1,0 +1,23 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: C:\Users\sofia\OneDrive\Documents\GitHub\sudoku-solver\src\main\scala\Main.scala:9:4 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m 9 |[0m    ([33mfor[0m {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    Found:    zio.URIO[Any, zio.ExitCode][0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    Required: zio.ZIO[Any, Throwable, Unit][0m
+[0m[[0m[31merror[0m] [0m[0m[31m10 |[0m      _ <- printLine([31m"Enter the path to the JSON file containing the Sudoku problem:"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m11 |[0m      path <- readLine[0m
+[0m[[0m[31merror[0m] [0m[0m[31m12 |[0m      _ <- printLine([31ms"You entered: [0m$path[31m"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m13 |[0m      jsonSudokuData <- openFile(path).catchAll { [36merror[0m =>[0m
+[0m[[0m[31merror[0m] [0m[0m[31m14 |[0m        [33mfor[0m {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m15 |[0m          _ <- printLine([31m"Could not open primary file"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m          _ <- printLine([31m"Enter another or the right path to a JSON file:"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m17 |[0m          backupPath <- readLine[0m
+[0m[[0m[31merror[0m] [0m[0m[31m18 |[0m          file <- openFile(backupPath)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m19 |[0m        } [33myield[0m file[0m
+[0m[[0m[31merror[0m] [0m[0m[31m20 |[0m      }[0m
+[0m[[0m[31merror[0m] [0m[0m[31m21 |[0m      _ <- printLine([31m"Here is a nice view of our sudoku"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m22 |[0m      [34m// Add your Sudoku solver logic here, utilizing ZIO and interacting with the ZIO Console[0m
+[0m[[0m[31merror[0m] [0m[0m[31m23 |[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m24 |[0m    } [33myield[0m ()).exitCode[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

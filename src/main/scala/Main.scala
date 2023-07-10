@@ -1,11 +1,11 @@
 package sudoku
 
 import zio._
+import scala.io.Source
 import zio.json._
 import zio.nio._
 
 object Main extends ZIOAppDefault {
-  
   val sudokuTestGrid = Array(
     Array(5, 3, 0, 0, 7, 0, 0, 0, 0),
     Array(6, 0, 0, 1, 9, 5, 0, 0, 0),
@@ -20,13 +20,22 @@ object Main extends ZIOAppDefault {
 
   def run: ZIO[Any, Throwable, Unit] = {
     for {
-      // _ <- Console.print("Enter the path to the JSON file containing the Sudoku problem:")
-      // path <- Console.readLine
-      // _ <-  Console.printLine(s"You entered: $path")
-    
-      // Print the unresolved grid
-      _ <- Console.printLine(Sudoku.prettyString(sudokuTestGrid))
-      
+      _ <- Console.print("Enter the path to the JSON file containing the Sudoku problem:")
+      path <- Console.readLine
+      _ <-  Console.printLine(s"You entered: $path")
+
+      jsonSudokuData <- openFile(path).catchAll { error =>
+        for {
+          _ <- printLine("Could not open primary file")
+          _ <- printLine("Enter another or the right path to a JSON file:")
+          backupPath <- readLine
+          file <- openFile(backupPath)
+        } yield file
+      }
+
+      _ <- Console.printLine("Loaded Sudoku:")
+      _ <- Console.printLine(Sudoku.prettyString(sudokuTestGrid) + "\n")
+
     } yield {
       // Resolve the grid
       Sudoku.solve(sudokuTestGrid)
