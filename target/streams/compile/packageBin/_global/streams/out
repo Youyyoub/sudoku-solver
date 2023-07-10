@@ -1,1 +1,23 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: C:\Users\sofia\OneDrive\Documents\GitHub\sudoku-solver\target\scala-3.3.0\sudoku-solver_3-1.0.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\sudoku-solver_3-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Main.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Main.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku$SudokuGrid$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku$SudokuGrid$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku$SudokuGrid.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku$SudokuGrid.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	sudoku\Sudoku.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Ayyoub\Documents\efrei\S8\functional-programming\sudoku-solver\target\scala-3.3.0\classes\sudoku\Sudoku.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

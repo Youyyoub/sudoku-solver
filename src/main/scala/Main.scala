@@ -20,25 +20,25 @@ object Main extends ZIOAppDefault {
 
   def run: ZIO[Any, Throwable, Unit] = {
     for {
-      _ <- Console.print("Enter the path to the JSON file containing the Sudoku problem:")
+      _ <- Console.print("Enter the path to the JSON file containing the Sudoku problem: ")
       path <- Console.readLine
       _ <-  Console.printLine(s"You entered: $path")
 
-      jsonSudokuData <- openFile(path).catchAll { error =>
+      jsonSudokuData <- Sudoku.openFile(path).catchAll { error =>
         for {
-          _ <- printLine("Could not open primary file")
-          _ <- printLine("Enter another or the right path to a JSON file:")
-          backupPath <- readLine
-          file <- openFile(backupPath)
-        } yield file
+          _ <- Console.printLine("Could not open primary file")
+          _ <- Console.printLine("Enter another or the right path to a JSON file:")
+          backupPath <- Console.readLine
+          jsonSudokuData <- Sudoku.openFile(backupPath)
+        } yield jsonSudokuData
       }
 
-      _ <- Console.printLine("Loaded Sudoku:")
-      _ <- Console.printLine(Sudoku.prettyString(sudokuTestGrid) + "\n")
+      _ <- Console.printLine("Loaded Sudoku: ")
+      // _ <- Console.printLine(Sudoku.prettyString(jsonSudokuData) + "\n")
 
     } yield {
       // Resolve the grid
-      Sudoku.solve(sudokuTestGrid)
+      // Sudoku.solve(sudokuTestGrid)
     }
   }
 }
@@ -60,6 +60,13 @@ object Sudoku {
   )
 
   implicit val SudokuGridDecoder: JsonDecoder[SudokuGrid] = DeriveJsonDecoder.gen[SudokuGrid]
+
+  def openFile(path: String): ZIO[Any, Throwable, Array[String]] =
+    ZIO.succeed(Source.fromFile(path).getLines.toArray)
+  
+  def convertStringArray2IntArray(jsonSudoku: Array[String]): Board = {
+    return null
+  }
 
   /** Function used to display a soduku in the console in an attractive way.
     * 
