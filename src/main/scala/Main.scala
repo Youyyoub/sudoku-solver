@@ -16,19 +16,26 @@ import io.circe.{Error => CirceError}
 import scala.util.{Failure, Success, Try}
 
 object JsonConverter {
-  case class SudokuData(row1: List[Int], row2: List[Int], row3: List[Int], row4: List[Int], row5: List[Int], row6: List[Int], row7: List[Int], row8: List[Int], row9: List[Int])
+  case class SudokuData(row1: List[Option[Int]], row2: List[Option[Int]], row3: List[Option[Int]], row4: List[Option[Int]], row5: List[Option[Int]], row6: List[Option[Int]], row7: List[Option[Int]], row8: List[Option[Int]], row9: List[Option[Int]])
 
   implicit val decoder: JsonDecoder[SudokuData] = DeriveJsonDecoder.gen[SudokuData]
 
   def convert(jsonString: String): Either[io.circe.Error, Sudoku.Board] = {
-  jsonString.fromJson[SudokuData].leftMap(DecodingFailure(_, Nil)).map(data => List(data.row1, data.row2, data.row3, data.row4, data.row5, data.row6, data.row7, data.row8, data.row9))
+    jsonString.fromJson[SudokuData].leftMap(DecodingFailure(_, Nil)).map(data => List(data.row1, data.row2, data.row3, data.row4, data.row5, data.row6, data.row7, data.row8, data.row9))
+  }
 }
- 
 
 
-
-
+object NullConverter {
+  def NullConvert(table: Sudoku.Board): Sudoku.Board = {
+    table.map { row =>
+      row.map { value =>
+        if (value == Some(0)) None else value
+      }
+    }
+  }
 }
+
 
 object Main extends ZIOAppDefault {
 
@@ -50,8 +57,9 @@ object Main extends ZIOAppDefault {
       _ <- Console.printLine("Loaded Sudoku: ")
 
       result = JsonConverter.convert(jsonSudokuData)
-      result <- ZIO.fromEither(result)
-      _ <- Console.printLine(Sudoku.prettyString(result) + "\n")
+      board <- ZIO.fromEither(result)
+      convertedBoard = NullConverter.NullConvert(board)
+      _ <- Console.printLine(Sudoku.prettyString(convertedBoard) + "\n")
 
       
     } yield ()
@@ -60,7 +68,7 @@ object Main extends ZIOAppDefault {
 
 object Sudoku {
   // Definition of the Board type used to store a sudoku grid
-  type Board = List[List[Int]]
+  type Board = List[List[Option[Int]]]
 
   case class SudokuGrid(
     row1: String,
@@ -101,7 +109,10 @@ object Sudoku {
     */
   def prettyString(sudoku: Board): String = {
   sudoku.map { row =>
-    row.map(_.toString).grouped(3).map(_.mkString(" ")).mkString(" | ")
+    row.map {
+      case Some(value) => value.toString
+      case None => " "
+    }.grouped(3).map(_.mkString(" ")).mkString(" | ")
   }.grouped(3).map(_.mkString("\n")).mkString("\n---------------------\n")
 }
 
